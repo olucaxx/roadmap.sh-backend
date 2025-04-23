@@ -11,21 +11,19 @@ public class Game {
 
         System.out.println("I'm thinking of a number between 1 and 100");
 
-        Game.start(difficulty);
-
-        while (true) {
-            System.out.println("Wanna play again? (yes/no)");
+        do {
+            Game.start(difficulty);
+            System.out.println("\nWanna play again? (yes/no)");
             String playAgain = InputHandler.string();
             switch (playAgain) {
                 case "yes":
-                    Game.start(difficulty);
                     break;
                 case "no":
                     return;
                 default:
                     System.out.println("Sorry, i didn't understand...");
             }
-        }
+        } while (true);
     }
 
     private static Difficulty askDifficulty() {
@@ -60,22 +58,20 @@ public class Game {
             System.out.printf("You have %s chances left\n", chances);
             System.out.print("What's your guess? ");
             int userGuess = InputHandler.integer();
+            chances--;
 
             if (userGuess > 100 || userGuess < 1) {
                 System.out.println("Number out of range, its from 1 to 100 only.");
-                chances--;
                 continue;
             }
 
             if (userGuess > randomNumber) {
                 System.out.println("Too high, try again.");
-                chances--;
                 continue;
             }
 
             if (userGuess < randomNumber) {
                 System.out.println("Too low, try again.");
-                chances--;
                 continue;
             }
 
@@ -83,9 +79,10 @@ public class Game {
         }
 
         if (!hasGuessed) {
-            System.out.println("You ran out of chances, better luck next time!");
+            System.out.printf("Ohh, you actually ran out of chances! The number was %s.\n", randomNumber);
             return;
         }
+
         System.out.println("Nice! You got it!");
         timeEnd = LocalTime.now().getHour() * 600 + LocalTime.now().getMinute() * 60 + LocalTime.now().getSecond();
         GameInfo gameInfo = new GameInfo(difficulty, chances, timeStart, timeEnd);
