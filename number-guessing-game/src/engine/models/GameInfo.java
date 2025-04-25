@@ -14,4 +14,9 @@ public class GameInfo {
         this.timeSpent = Math.abs(timeStart - timeEnd);
         this.date = LocalDate.now();
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s,%s,%s,%s\n", this.difficulty, this.totalGuesses, this.timeSpent, this.date);
+    }
 }
