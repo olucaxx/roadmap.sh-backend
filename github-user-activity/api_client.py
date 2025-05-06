@@ -1,5 +1,7 @@
 import requests
 
+from requests import RequestException
+
 def fetch_user_activity(username: str) -> dict:
     """A function to fetch the recent activity from a given user.
     
@@ -15,9 +17,6 @@ def fetch_user_activity(username: str) -> dict:
     
     response: requests.Response = requests.get(f"https://api.github.com/users/{username}/events")
 
-    status_code: int = response.status_code
-
-    if status_code != 200: # 200 é o OK, se for diferente é pq deu problema
-        raise Exception(status_code)
+    response.raise_for_status()
         
     return response.json()
