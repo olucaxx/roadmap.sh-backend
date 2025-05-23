@@ -47,6 +47,19 @@ class PushEvent(Event):
     def __str__(self) -> str:
         return f"Pushed {self.commits} {"commits" if self.commits > 1 else "commit"} to {self.repo_name}"
 
+class WatchEvent(Event):
+    def __str__(self) -> str:
+        return f"Starred {self.repo_name}"
+    
+class DeleteEvent(Event):
+    def __init__(self, repo_id: int, repo_name: str, ref_type: str, ref: str) -> None:
+        super().__init__(repo_id, repo_name)
+        self.ref_type = ref_type
+        self.ref = ref 
+        
+    def __str__(self) -> str:
+        return f"Deleted '{self.ref}' {self.ref_type} from {self.repo_name}"
+    
 class GenericEvent(Event):
     type: str
     

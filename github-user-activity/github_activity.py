@@ -1,7 +1,7 @@
 import argparse
 import display
 import api_client
-from events import CreateEvent, PushEvent, GenericEvent
+from events import CreateEvent, PushEvent, GenericEvent, WatchEvent, DeleteEvent
 from requests.exceptions import ConnectionError, HTTPError, RequestException
 
 def main() -> None:
@@ -34,6 +34,12 @@ def main() -> None:
                         
                 case "CreateEvent":
                     activities.append(CreateEvent(repo_id, repo_name, data["payload"]["ref_type"], data["payload"]["ref"]))
+                    
+                case "WatchEvent":
+                    activities.append(WatchEvent(repo_id, repo_name))
+                    
+                case "DeleteEvent":
+                    activities.append(DeleteEvent(repo_id, repo_name, data["payload"]["ref_type"], data["payload"]["ref"]))
                     
                 case _: # caso seja um novo tipo de vento que ainda não tem uma classe definida
                     activities.append(GenericEvent(repo_id, repo_name, data["type"]))
