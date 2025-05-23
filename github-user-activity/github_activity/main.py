@@ -1,7 +1,6 @@
 import argparse
-import display
-import api_client
-from events import CreateEvent, PushEvent, GenericEvent, WatchEvent, DeleteEvent
+from github_activity import display, api_client
+from github_activity.events import CreateEvent, PushEvent, GenericEvent, WatchEvent, DeleteEvent
 from requests.exceptions import ConnectionError, HTTPError, RequestException
 
 def main() -> None:
@@ -53,6 +52,3 @@ def main() -> None:
         print("An error occurred:", e)
     except Exception as e:
         print("Error", e)
-    
-if __name__ == "__main__":
-    main()

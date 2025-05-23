@@ -2,3 +2,5 @@
 .venv/
 .mypy* 
 __pycache__/
+*.egg-info/
+build/
