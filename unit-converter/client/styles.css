@@ -1,6 +1,9 @@
-body {
+* {
     font-family: 'Poppins', 'sans-serif';
     font-weight: 500;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,11 +36,6 @@ li {
     cursor: pointer;
 }
 
-.tab-content {
-    background-color: rgba(0,0,0,0.5);
-    padding: 0;
-}
-
 .length-tab, .weight-tab, .temperature-tab {
     width: 100%;
     height: 100%;
@@ -50,3 +48,72 @@ li.active {
 }
 
 div.active { display: flex; }
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#length-value {
+    width: auto;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.dropdown-div {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.dropdown-button {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    align-content: space-around;
+    overflow: hidden;
+
+    visibility: hidden;
+}
+
+.dropdown-content.visible {
+    visibility: visible;
+}
+
+.dropdown-option {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 0;
+}
