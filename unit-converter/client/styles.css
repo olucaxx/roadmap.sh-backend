@@ -94,7 +94,6 @@ form {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    z-index: 100;
     align-content: space-around;
     overflow: hidden;
 
@@ -103,6 +102,10 @@ form {
 
 .dropdown-content.visible {
     visibility: visible;
+}
+
+.from-dropdown .dropdown-content.visible {
+    z-index: 1; /* faz com que ele fique por cima de outros elementos */
 }
 
 .dropdown-option {

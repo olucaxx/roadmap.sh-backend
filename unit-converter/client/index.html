@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Unit Converter</title>
 </head>
+
 <body>
     <main>
         <h2>Unit Converter</h2>
@@ -18,48 +20,49 @@
             </ul>
         </nav>
         <div class="tab-content">
-            <div class="length-tab active" >
-                <form>
+            <div class="length-tab active">
+                <form id="length-form">
                     <label for="length-value">Enter the length to convert</label>
                     <input id="length-value" type="number" name="length-value">
 
                     <label for="from-length">Unit to convert from</label>
-                    <div id="from-length-dropdown" class="dropdown-div">
+                    <div class="dropdown-div from-dropdown">
                         <input type="hidden" name="from-length">
 
-                        <button type="button" class="dropdown-button"> 
+                        <button type="button" class="dropdown-button">
                             <span class="dropdown-text">Select unit</span>
                             <span class="dropdown-icon">v</span>
                         </button>
 
                         <div class="dropdown-content">
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">First Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Second Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Third Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fourth Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fifth Item</span>
-                                <span class="dropdown-select"></span></button>
+                            <button type="button" class="dropdown-option" id="millimeter">
+                                <span class="option-text">Millimeter </span>(mm)</button>
+                            <button type="button" class="dropdown-option" id="centimeter">
+                                <span class="option-text">Centimeter </span>(cm)</button>
+                            <button type="button" class="dropdown-option" id="meter">
+                                <span class="option-text">Meter </span>(m)</button>
+                            <button type="button" class="dropdown-option" id="kilometer">
+                                <span class="option-text">Kilometer </span>(km)</button>
+                            <button type="button" class="dropdown-option" id="inch">
+                                <span class="option-text">Inch </span>(in)</button>
+                            <button type="button" class="dropdown-option" id="foot">
+                                <span class="option-text">Foot </span>(ft)</button>
+                            <button type="button" class="dropdown-option" id="yard">
+                                <span class="option-text">Yard </span>(yd)</button>
+                            <button type="button" class="dropdown-option" id="mile">
+                                <span class="option-text">Mile </span>(mi)</button>
                         </div>
                     </div>
 
                     <label for="to-length">Unit to convert to</label>
-                    <div id="to-length-dropdown" class="dropdown-div">
+                    <div class="dropdown-div to-dropdown">
                         <input type="hidden" name="to-length">
 
-                        <button type="button" class="dropdown-button"> 
+                        <button type="button" class="dropdown-button">
                             <span class="dropdown-text">Select unit</span>
                             <span class="dropdown-icon">v</span>
                         </button>
-                        
+
                         <div class="dropdown-content">
                             <button type="button" class="dropdown-option">
                                 <span class="dropdown-text">First Item</span>
@@ -84,128 +87,17 @@
                 <form>
                     <label for="length-value">Enter the weight to convert</label>
                     <input id="length-value" type="number" name="length-value">
-
-                    <label for="from-length">Unit to convert from</label>
-                    <div id="from-length-dropdown" class="dropdown-div">
-                        <input type="hidden" name="from-length">
-
-                        <button type="button" class="dropdown-button"> 
-                            <span class="dropdown-text">Select unit</span>
-                            <span class="dropdown-icon">v</span>
-                        </button>
-
-                        <div class="dropdown-content">
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">First Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Second Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Third Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fourth Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fifth Item</span>
-                                <span class="dropdown-select"></span></button>
-                        </div>
-                    </div>
-
-                    <label for="to-length">Unit to convert to</label>
-                    <div id="to-length-dropdown" class="dropdown-div">
-                        <input type="hidden" name="to-length">
-
-                        <button type="button" class="dropdown-button"> 
-                            <span class="dropdown-text">Select unit</span>
-                            <span class="dropdown-icon">v</span>
-                        </button>
-                        
-                        <div class="dropdown-content">
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">First Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Second Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Third Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fourth Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fifth Item</span>
-                                <span class="dropdown-select"></span></button>
-                        </div>
-                    </div>
                 </form>
             </div>
             <div class="temperature-tab">
                 <form>
                     <label for="length-value">Enter the temperature to convert</label>
                     <input id="length-value" type="number" name="length-value">
-
-                    <label for="from-length">Unit to convert from</label>
-                    <div id="from-length-dropdown" class="dropdown-div">
-                        <input type="hidden" name="from-length">
-
-                        <button type="button" class="dropdown-button"> 
-                            <span class="dropdown-text">Select unit</span>
-                            <span class="dropdown-icon">v</span>
-                        </button>
-
-                        <div class="dropdown-content">
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">First Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Second Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Third Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fourth Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fifth Item</span>
-                                <span class="dropdown-select"></span></button>
-                        </div>
-                    </div>
-
-                    <label for="to-length">Unit to convert to</label>
-                    <div id="to-length-dropdown" class="dropdown-div">
-                        <input type="hidden" name="to-length">
-
-                        <button type="button" class="dropdown-button"> 
-                            <span class="dropdown-text">Select unit</span>
-                            <span class="dropdown-icon">v</span>
-                        </button>
-                        
-                        <div class="dropdown-content">
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">First Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Second Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Third Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fourth Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fifth Item</span>
-                                <span class="dropdown-select"></span></button>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
