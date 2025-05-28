@@ -1,9 +1,6 @@
-let dropdowns;
-const lenghtForm = document.getElementById('length-form');
-const weightForm = document.getElementById('weight-form');
-const tempForm = document.getElementById('temp-form');
-
-setupDropdowns();
+const dropdowns = document.querySelectorAll('.dropdown');
+const forms = document.querySelectorAll('form');
+const tabs = document.querySelectorAll('li')
 
 function changeTab() {
     document.querySelectorAll('.active').forEach(element => {
@@ -12,33 +9,9 @@ function changeTab() {
 
     this.classList.add('active');
     document.querySelector(`.${this.id}`).classList.add('active');
-
-    setupDropdowns();
 }
 
-function dropdownConfig(dropdown) {
-    const dropdownBtn = dropdown.querySelector('.dropdown-button');
-    const dropdownContent = dropdown.querySelector('.dropdown-content');
-    const icon = dropdown.querySelector('.dropdown-icon');
-    const dropdownText = dropdown.querySelector('.dropdown-text');
-    const dropdownOptions = dropdown.querySelectorAll('.dropdown-option');
-    const input = dropdown.querySelector('input')
-
-    dropdownBtn.addEventListener('click', (event) => {
-        event.stopPropagation();
-        dropdownContent.classList.toggle('visible');
-        icon.innerHTML = icon.innerHTML == 'v' ? 'ʌ' : 'v';
-    });
-
-    dropdownOptions.forEach((option) => {
-        console.log(option.textContent)
-        option.addEventListener('click', (event) => {
-            selectDropdownOption(event, input, event.currentTarget, dropdownContent, dropdownText, icon, dropdownOptions);
-        });
-    });
-}
-
-function selectDropdownOption(event, input, clickedOpt, dropdownContent, dropdownText, icon, options) {
+function selectDropdownOption(event, input, clickedOpt, dropdownContent, dropdownText, icon, options, dropdownBtn) {
     event.stopPropagation()
 
     options.forEach(option => option.style.backgroundColor = "#ffffff")
@@ -48,31 +21,60 @@ function selectDropdownOption(event, input, clickedOpt, dropdownContent, dropdow
     dropdownText.innerHTML = clickedOpt.textContent;
     input.value = clickedOpt.id
     dropdownContent.classList.remove('visible');
+    dropdownBtn.classList.toggle('selecting');
     icon.innerHTML = 'v';
 }
 
-function setupDropdowns() {
-    if (dropdowns) {
-        dropdowns.forEach(dropdown => {
-            // isso basicamente reseta o elemento colocando um clone "zero" no lugar dele
-            dropdown.replaceWith(dropdown.cloneNode(true));
-        });
-    }
-
-    dropdowns = document.querySelectorAll('.active .dropdown-div');
-
-    dropdowns.forEach(dropdown => {
-        dropdownConfig(dropdown)
-    });
+function validateFormData(form) {
+    return Boolean(form.value.value && form.from.value && form.to.value)
 }
 
-document.querySelectorAll('li').forEach(item => {
-    item.addEventListener('click', changeTab);
+tabs.forEach(tab => tab.addEventListener('click', changeTab));
+
+dropdowns.forEach(dropdown => {
+    const dropdownBtn = dropdown.querySelector('.button');
+    const dropdownContent = dropdown.querySelector('.content');
+    const icon = dropdown.querySelector('.icon');
+    const dropdownText = dropdown.querySelector('.text');
+    const dropdownOptions = dropdown.querySelectorAll('.option');
+    const input = dropdown.querySelector('input')
+
+    dropdownBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        dropdownContent.classList.toggle('visible');
+        dropdownBtn.classList.toggle('selecting');
+        icon.innerHTML = icon.innerHTML == 'v' ? 'ʌ' : 'v';
+    });
+
+    dropdownOptions.forEach((option) => {
+        option.addEventListener('click', (event) => {
+            selectDropdownOption(event, input, event.currentTarget, dropdownContent, dropdownText, icon, dropdownOptions, dropdownBtn);
+        });
+    });
 });
+
 
 document.addEventListener('click', () => {
     dropdowns.forEach(dropdown => {
-        dropdown.querySelector('.dropdown-content').classList.remove('visible');
-        dropdown.querySelector('.dropdown-icon').innerHTML = 'v';
+        dropdown.querySelector('.content').classList.remove('visible');
+        dropdown.querySelector('.icon').innerHTML = 'v';
+        dropdown.querySelector('.button').classList.remove('selecting');
     })
 })
+
+forms.forEach(form => { 
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (validateFormData(form)) {
+            form.querySelector(".error-message").classList.remove('visible')
+            const data = {
+                type: form.id,
+                value: form.value.value,
+                from: form.from.value,
+                to: form.to.value
+            };
+            return
+        }
+        form.querySelector(".error-message").classList.add('visible')
+    });
+});

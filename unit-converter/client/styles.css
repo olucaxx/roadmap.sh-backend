@@ -27,7 +27,7 @@ ul {
     display: flex;
     list-style: none;
     padding: 0;
-    gap: 10px; /* modificar para separar melhor as tabs */
+    gap: 10px; 
 }
 
 li {
@@ -43,8 +43,7 @@ li {
 }
 
 li.active { 
-    color: blue;
-    border-bottom: solid blue 2px; 
+    border-bottom: solid black 2px; 
 }
 
 div.active { display: flex; }
@@ -55,21 +54,23 @@ form {
     width: 100%;
 }
 
-#length-value {
+.value-input {
     width: auto;
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
     background-color: white;
+    margin-bottom: 10px;
 }
 
-.dropdown-div {
+.dropdown {
+    margin-bottom: 10px;
     position: relative;
     box-sizing: border-box;
-    margin: 0;
 }
 
-.dropdown-button {
+
+.dropdown .button {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -82,7 +83,11 @@ form {
     box-sizing: border-box;
 }
 
-.dropdown-content {
+.dropdown .button.selecting {
+    outline: auto;
+}
+
+.dropdown .content {
     position: absolute;
     top: 100%;
     left: 0;
@@ -100,15 +105,15 @@ form {
     visibility: hidden;
 }
 
-.dropdown-content.visible {
+.dropdown .content.visible {
     visibility: visible;
 }
 
-.from-dropdown .dropdown-content.visible {
+.dropdown.from .content.visible {
     z-index: 1; /* faz com que ele fique por cima de outros elementos */
 }
 
-.dropdown-option {
+.dropdown .option {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -119,4 +124,33 @@ form {
     cursor: pointer;
     box-sizing: border-box;
     border-radius: 0;
+}
+
+form .footer {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error-message {
+    margin: 0;
+    color: red;
+    width: auto;
+    visibility: hidden;
+}
+
+.error-message.visible {
+    visibility: visible;
+}
+
+.submit-btn {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
 }

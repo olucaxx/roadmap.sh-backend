@@ -21,79 +21,78 @@
         </nav>
         <div class="tab-content">
             <div class="length-tab active">
-                <form id="length-form">
-                    <label for="length-value">Enter the length to convert</label>
-                    <input id="length-value" type="number" name="length-value">
+                <form id="length">
+                    <label for="value">Enter the length to convert</label>
+                    <input class="value-input" type="number" name="value" step="0.01">
 
-                    <label for="from-length">Unit to convert from</label>
-                    <div class="dropdown-div from-dropdown">
-                        <input type="hidden" name="from-length">
+                    <label for="from">Unit to convert from</label>
+                    <div class="dropdown from">
+                        <input type="hidden" name="from">
 
-                        <button type="button" class="dropdown-button">
-                            <span class="dropdown-text">Select unit</span>
-                            <span class="dropdown-icon">v</span>
+                        <button class="button" type="button">
+                            <span class="text">Select unit</span>
+                            <span class="icon">v</span>
                         </button>
 
-                        <div class="dropdown-content">
-                            <button type="button" class="dropdown-option" id="millimeter">
+                        <div class="content">
+                            <button type="button" class="option" id="millimeter">
                                 <span class="option-text">Millimeter </span>(mm)</button>
-                            <button type="button" class="dropdown-option" id="centimeter">
+                            <button type="button" class="option" id="centimeter">
                                 <span class="option-text">Centimeter </span>(cm)</button>
-                            <button type="button" class="dropdown-option" id="meter">
+                            <button type="button" class="option" id="meter">
                                 <span class="option-text">Meter </span>(m)</button>
-                            <button type="button" class="dropdown-option" id="kilometer">
+                            <button type="button" class="option" id="kilometer">
                                 <span class="option-text">Kilometer </span>(km)</button>
-                            <button type="button" class="dropdown-option" id="inch">
+                            <button type="button" class="option" id="inch">
                                 <span class="option-text">Inch </span>(in)</button>
-                            <button type="button" class="dropdown-option" id="foot">
+                            <button type="button" class="option" id="foot">
                                 <span class="option-text">Foot </span>(ft)</button>
-                            <button type="button" class="dropdown-option" id="yard">
+                            <button type="button" class="option" id="yard">
                                 <span class="option-text">Yard </span>(yd)</button>
-                            <button type="button" class="dropdown-option" id="mile">
+                            <button type="button" class="option" id="mile">
                                 <span class="option-text">Mile </span>(mi)</button>
                         </div>
                     </div>
 
-                    <label for="to-length">Unit to convert to</label>
-                    <div class="dropdown-div to-dropdown">
-                        <input type="hidden" name="to-length">
+                    <label for="to">Unit to convert to</label>
+                    <div class="dropdown to">
+                        <input type="hidden" name="to">
 
-                        <button type="button" class="dropdown-button">
-                            <span class="dropdown-text">Select unit</span>
-                            <span class="dropdown-icon">v</span>
+                        <button class="button" type="button">
+                            <span class="text">Select unit</span>
+                            <span class="icon">v</span>
                         </button>
 
-                        <div class="dropdown-content">
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">First Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Second Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Third Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fourth Item</span>
-                                <span class="dropdown-select"></span></button>
-                            <button type="button" class="dropdown-option">
-                                <span class="dropdown-text">Fifth Item</span>
-                                <span class="dropdown-select"></span></button>
+                        <div class="content">
+                            <button type="button" class="option" id="millimeter">
+                                <span class="option-text">Millimeter </span>(mm)</button>
+                            <button type="button" class="option" id="centimeter">
+                                <span class="option-text">Centimeter </span>(cm)</button>
+                            <button type="button" class="option" id="meter">
+                                <span class="option-text">Meter </span>(m)</button>
+                            <button type="button" class="option" id="kilometer">
+                                <span class="option-text">Kilometer </span>(km)</button>
+                            <button type="button" class="option" id="inch">
+                                <span class="option-text">Inch </span>(in)</button>
+                            <button type="button" class="option" id="foot">
+                                <span class="option-text">Foot </span>(ft)</button>
+                            <button type="button" class="option" id="yard">
+                                <span class="option-text">Yard </span>(yd)</button>
+                            <button type="button" class="option" id="mile">
+                                <span class="option-text">Mile </span>(mi)</button>
                         </div>
+                    </div>
+                    <div class="footer">
+                        <p class="error-message">Please fill in all fields</p>
+                        <input type="submit" class="submit-btn" value="Convert">
                     </div>
                 </form>
             </div>
             <div class="weight-tab">
-                <form>
-                    <label for="length-value">Enter the weight to convert</label>
-                    <input id="length-value" type="number" name="length-value">
-                </form>
+
             </div>
             <div class="temperature-tab">
-                <form>
-                    <label for="length-value">Enter the temperature to convert</label>
-                    <input id="length-value" type="number" name="length-value">
-                </form>
+
             </div>
         </div>
     </main>
