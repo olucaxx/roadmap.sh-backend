@@ -24,11 +24,11 @@
                 <form id="length">
                     <div class="form-inputs active">
                         <label for="value">Enter the length to convert</label>
-                        <input class="value-input" type="number" name="value" step="0.01" value="">
+                        <input class="value-input" type="number" name="value" step="0.01">
 
                         <label for="from">Unit to convert from</label>
                         <div class="dropdown from">
-                            <input type="hidden" name="from" value="">
+                            <input type="hidden" name="from">
 
                             <button class="button" type="button">
                                 <span class="text">Select unit</span>
@@ -57,7 +57,7 @@
 
                         <label for="to">Unit to convert to</label>
                         <div class="dropdown to">
-                            <input type="hidden" name="to" value="">
+                            <input type="hidden" name="to">
 
                             <button class="button" type="button">
                                 <span class="text">Select unit</span>
@@ -97,12 +97,123 @@
             </div>
             <div class="weight-tab">
                 <form id="weight">
-                    
+                    <div class="form-inputs active">
+                        <label for="value">Enter the weight to convert</label>
+                        <input class="value-input" type="number" name="value" step="0.01">
+
+                        <label for="from">Unit to convert from</label>
+                        <div class="dropdown from">
+                            <input type="hidden" name="from">
+
+                            <button class="button" type="button">
+                                <span class="text">Select unit</span>
+                                <span class="icon">v</span>
+                            </button>
+
+                            <div class="content">
+                                <button type="button" class="option" id="mg">
+                                    <span class="option-text">Milligram </span>(mg)</button>
+                                <button type="button" class="option" id="g">
+                                    <span class="option-text">Gram </span>(g)</button>
+                                <button type="button" class="option" id="kg">
+                                    <span class="option-text">Kilogram </span>(kg)</button>
+                                <button type="button" class="option" id="oz">
+                                    <span class="option-text">Ounce </span>(oz)</button>
+                                <button type="button" class="option" id="lb">
+                                    <span class="option-text">Pound </span>(lb)</button>
+                            </div>
+                        </div>
+
+                        <label for="to">Unit to convert to</label>
+                        <div class="dropdown to">
+                            <input type="hidden" name="to">
+
+                            <button class="button" type="button">
+                                <span class="text">Select unit</span>
+                                <span class="icon">v</span>
+                            </button>
+
+                            <div class="content">
+                                <button type="button" class="option" id="mg">
+                                    <span class="option-text">Milligram </span>(mg)</button>
+                                <button type="button" class="option" id="g">
+                                    <span class="option-text">Gram </span>(g)</button>
+                                <button type="button" class="option" id="kg">
+                                    <span class="option-text">Kilogram </span>(kg)</button>
+                                <button type="button" class="option" id="oz">
+                                    <span class="option-text">Ounce </span>(oz)</button>
+                                <button type="button" class="option" id="lb">
+                                    <span class="option-text">Pound </span>(lb)</button>
+                            </div>
+                        </div>
+
+                        <div class="footer">
+                            <p class="error-message">Please fill in all fields</p>
+                            <input type="submit" class="submit-btn" value="Convert">
+                        </div>
+                    </div>
+                    <div class="calculation-result">
+                        <p>Result of your calculation</p>
+                        <h2 class="result"></h2>
+                        <input type="reset" class="reset-button">
+                    </div>
                 </form>
             </div>
             <div class="temperature-tab">
                 <form id="temperature">
-                    
+                    <div class="form-inputs active">
+                        <label for="value">Enter the temperature to convert</label>
+                        <input class="value-input" type="number" name="value" step="0.01">
+
+                        <label for="from">Unit to convert from</label>
+                        <div class="dropdown from">
+                            <input type="hidden" name="from">
+
+                            <button class="button" type="button">
+                                <span class="text">Select unit</span>
+                                <span class="icon">v</span>
+                            </button>
+
+                            <div class="content">
+                                <button type="button" class="option" id="c">
+                                    <span class="option-text">Celsius </span>(C)</button>
+                                <button type="button" class="option" id="f">
+                                    <span class="option-text">Fahrenheit </span>(F)</button>
+                                <button type="button" class="option" id="k">
+                                    <span class="option-text">kelvin </span>(K)</button>
+                            </div>
+                        </div>
+
+                        <label for="to">Unit to convert to</label>
+                        <div class="dropdown to">
+                            <input type="hidden" name="to">
+
+                            <button class="button" type="button">
+                                <span class="text">Select unit</span>
+                                <span class="icon">v</span>
+                            </button>
+
+                            <div class="content">
+                                <button type="button" class="option" id="c">
+                                    <span class="option-text">Celsius </span>(C)</button>
+                                <button type="button" class="option" id="f">
+                                    <span class="option-text">Fahrenheit </span>(F)</button>
+                                <button type="button" class="option" id="k">
+                                    <span class="option-text">kelvin </span>(K)</button>
+                            </div>
+                        </div>
+
+                        <div class="footer">
+                            <p class="error-message">Please fill in all fields</p>
+                            <input type="submit" class="submit-btn" value="Convert">
+                        </div>
+                    </div>
+
+                    <div class="calculation-result">
+                        <p>Result of your calculation</p>
+                        <h2 class="result"></h2>
+                        <input type="reset" class="reset-button">
+                    </div>
                 </form>
             </div>
         </div>

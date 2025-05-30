@@ -55,21 +55,38 @@ function validateFormData(form) {
 
 function resetForm(event) {
     const form = event.currentTarget
-
+    
+    form.value.value = ""
     form.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.querySelector('input').value = ""
         dropdown.querySelector('.button .text').innerHTML = "Select unit"
         dropdown.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'))
     })
     form.querySelector(".calculation-result").classList.remove('active')
     form.querySelector(".form-inputs").classList.add('active')
-    form.reset()
+}
+
+function animateErrorMessage(errorMessage) {
+    errorMessage.addEventListener('animationend', () => {
+        errorMessage.classList.remove('shake-animation');
+    }, {once: true});
+
+    if (getComputedStyle(errorMessage).opacity === '1') {
+        errorMessage.classList.add('shake-animation')
+        return
+    }
+    setTimeout(() => {
+        errorMessage.classList.add('shake-animation')
+    }, 120) 
 }
 
 function handleFormSubmit(event) {
     event.preventDefault()
     const form = event.currentTarget
+    const errorMessage = form.querySelector(".error-message")
+
     if (validateFormData(form)) {
-        form.querySelector(".error-message").classList.remove('visible')
+        errorMessage.classList.remove('visible')
         const data = {
             type: form.id,
             value: form.value.value,    
@@ -78,10 +95,10 @@ function handleFormSubmit(event) {
         }
         form.querySelector(".calculation-result").classList.add('active')
         form.querySelector(".form-inputs").classList.remove('active')
-        console.log(data)
         return
     }
-    form.querySelector(".error-message").classList.add('visible')
+    errorMessage.classList.add('visible')
+    animateErrorMessage(errorMessage)
 }
 
 function closeAllDropdowns() {

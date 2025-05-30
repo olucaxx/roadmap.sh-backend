@@ -158,17 +158,6 @@ p {
     margin-bottom: 5px;
 }
 
-.error-message {
-    margin: 0;
-    color: red;
-    width: auto;
-    visibility: hidden;
-}
-
-.error-message.visible {
-    visibility: visible;
-}
-
 .submit-btn,
 .reset-button {
     width: 100px;
@@ -194,4 +183,30 @@ p {
 
 .form-inputs.active {
     display: flex;
+}
+
+.error-message {
+    margin: 0;
+    color: red;
+    width: auto;
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+
+.error-message.visible {
+    opacity: 1;
+}
+
+.shake-animation {
+    animation-name: shake;
+    animation-duration: 0.2s; 
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(3px); }
+    50%  { transform: translateX(-3px); }
+    75%  { transform: translateX(3px); }
+    100% { transform: translateX(0); }
 }
