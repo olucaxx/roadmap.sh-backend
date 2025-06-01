@@ -86,15 +86,36 @@ function handleFormSubmit(event) {
     const errorMessage = form.querySelector(".error-message")
 
     if (validateFormData(form)) {
+        const resultMessage = document.querySelector('.result')
+
         errorMessage.classList.remove('visible')
+        form.querySelector(".calculation-result").classList.add('active')
+        form.querySelector(".form-inputs").classList.remove('active')
+
         const data = {
             type: form.id,
             value: form.value.value,    
             from: form.from.value,
             to: form.to.value
         }
-        form.querySelector(".calculation-result").classList.add('active')
-        form.querySelector(".form-inputs").classList.remove('active')
+
+        fetch("/", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+            }
+        )
+        .then(response => {
+            if (!response.ok) {
+                resultMessage.innerHTML = "Error"
+                throw new Error(response.status)
+            }
+            return response.json()
+        })
+        .then(data =>
+            console.log(JSON.stringify(data))
+        )
+
         return
     }
     errorMessage.classList.add('visible')
