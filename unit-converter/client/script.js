@@ -113,9 +113,8 @@ function handleFormSubmit(event) {
             return response.json()
         })
         .then(data =>
-            console.log(JSON.stringify(data))
+            resultMessage.innerHTML = data.result
         )
-
         return
     }
     errorMessage.classList.add('visible')
